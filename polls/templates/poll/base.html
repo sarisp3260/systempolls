@@ -1,0 +1,106 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{% block title %}{% endblock %}</title>
+
+		<!-- Bootstrap CSS -->
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+
+	</head>
+	<body>
+		<!--
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container">
+				
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="{% url 'home' %}">Poll Application</a>
+				</div>
+
+				
+				<div class="collapse navbar-collapse navbar-ex1-collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="{% url 'home' %}">Home</a></li>
+						<li><a href="{% url 'create' %}">Create</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav> -->
+		
+		<div>
+			<nav class="bg-blue-500 shadow-lg">
+				<div class="max-w-6xl mx-auto px-4">
+					<div class="flex justify-between">
+						<div class="flex space-x-7">
+							<div>
+								<!-- Website Logo -->
+								<a href="#" class="flex items-center py-4 px-2">
+									
+									<span class="font-semibold text-white text-lg">Aplicacion de encuestas</span>
+									
+								</a>
+							</div>
+							<!-- Primary Navbar items -->
+							<div class="hidden md:flex items-center space-x-1">
+								<a href="{% url 'home' %}" class="py-4 px-2 text-gray-600 font-semibold hover:text-white border-b-4 border-transparent hover:border-gray-600 transition duration-300">Inico</a>
+								<a href="{% url 'create' %}" class="py-4 px-2 text-gray-600 font-semibold hover:text-white border-b-4 border-transparent hover:border-gray-600 transition duration-300">Crear encuesta</a>
+							</div>
+						</div>
+						<!-- Secondary Navbar items -->
+						<div class="hidden md:flex items-center space-x-3 ">
+							<!-- Secondary Navbar items -->
+						</div>
+						<!-- Mobile menu button -->
+						<div class="md:hidden flex items-center">
+							<button class="outline-none mobile-menu-button">
+							<svg class=" w-6 h-6 text-gray-500 hover:text-blue-500 "
+								x-show="!showMenu"
+								fill="none"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path d="M4 6h16M4 12h16M4 18h16"></path>
+							</svg>
+						</button>
+						</div>
+					</div>
+				</div>
+				<!-- mobile menu -->
+				<div class="hidden mobile-menu">
+					<ul class="">
+						<li><a href="{% url 'home' %}" class="block text-sm px-2 py-4 text-gray-600 hover:bg-blue-500  bg-gray-300 font-semibold transition duration-300">Inicio</a></li>
+						<li><a href="{% url 'create' %}" class="block text-sm px-2 py-4 text-gray-600 hover:bg-blue-500 bg-gray-300 transition duration-300 font-semibold">Crear encuesta</a></li>
+					</ul>
+				</div>
+				<script>
+					const btn = document.querySelector("button.mobile-menu-button");
+					const menu = document.querySelector(".mobile-menu");
+	
+					btn.addEventListener("click", () => {
+						menu.classList.toggle("hidden");
+					});
+				</script>
+			</nav>
+			</br>
+		</div>
+
+		<div class="p-4">
+			{% block main %}{% endblock %}
+		</div>
+
+	</body>
+</html>

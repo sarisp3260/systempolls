@@ -1,0 +1,47 @@
+{% extends "poll/base.html" %}
+{% block title %}Vote{% endblock %}
+{% block main %}
+    <div class="w-full text-lg">
+        <div class="">
+            <div class="">
+                <div class="bg-gray-300">
+                    <h3 class="text-xl font-bold text-center">ENCUESTA</h3>
+                </div>
+                <div class="bg-gray-100 pt-4">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h2>
+                                <span class="font-bold">Pregunta:</span> {{ poll.question }}
+                        </h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <h1>Vota por una de las siguientes opciones</h1>
+                    <div class="col-lg-12">
+                        <hr />
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <div class="radio pt-2 ">
+                                    {% for a in answers  %}
+                                        
+                                        <div class="form-check">
+                                            <input value="{{ a.id }}" class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="radio"  name="poll" id="poll">
+                                            <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">
+                                                {{ a.option }}
+                                            </label>
+                                        </div>
+                                       
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <br />
+                            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Votar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "poll/base.html" %}
+{% load widget_tweaks %}
+{% block title %}Create Poll{% endblock %}
+{% block main %}
+    <div class="w-full xl:px-12">
+        <div class="w-full">
+            <h3 class="font-bold text-gray-800 text-xl">Crear una nueva encuesta</h3>
+            <form method="POST"  class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                {% csrf_token %}
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="username">Ingrese una pregunta</label>
+                    {% render_field form.question class="w-full shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Ingrese una pregunta" rows="3" %}
+                </div>
+                <div id="forms2" class="flex flex-col">
+                    {{ form2.management_form }}
+                    {% for f  in form2 %}
+                        <label for="question" class="block text-gray-700 text-sm font-bold mb-2">opcion</label>
+                        {% render_field f.option|attr:'required:true' class="w-full shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline is-valid " %}
+                    {% endfor %}
+                </div>
+                <div class="flex items-center gap-2 pt-4">
+                    <button type="button" onclick="addInput()" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Agregar opcion</button>
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                            type="submit">
+                        Enviar Formulario
+                    </button>
+                </div>
+            </form>
+            <p class="text-center text-gray-500 text-xs">
+                &copy;2022.
+            </p>
+        </div>
+       
+    </div>
+    <script>
+    function addInput(){
+        var forms=document.querySelector('#id_form-TOTAL_FORMS');
+        var input= document.querySelector('#id_form-0-option').cloneNode(true);
+        var newinput=document.createElement("input");
+        var label=document.createElement("label");
+        label.className="block text-gray-700 text-sm font-bold mb-2";
+        label.innerText= "opcion";
+        console.log(label);
+        newinput.name='form-'+forms.value+'-option';
+        newinput.id='id_form-'+forms.value+'-option';
+        newinput.className="w-full shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline";
+        newinput.type="text";
+        newinput.maxlength="30";
+        document.querySelector('#forms2').appendChild(label);
+        document.querySelector('#forms2').appendChild(newinput);
+        forms.value=parseInt(forms.value)+1;
+
+    }
+    </script>
+{% endblock %}
