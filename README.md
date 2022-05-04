@@ -1,4 +1,4 @@
-# SYSTEMAS DE ENCUESTAS
+# SISTEMAS DE ENCUESTAS
 
 > Proyecto construido con python, postgres y django
 
@@ -34,11 +34,13 @@ settings.py
 ```
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
+        'ENGINE': 'aqui va la configuracion de la bases de datos autilizar ya sea postgres, mysql o django, etc',
         'CLIENT': {
             "host":"esrcibe aqui el nombre del host",
             "name":"nombre bases de datos",
-            "authMechanism":"SCRAM-SHA-1" #For atlas cloud db
+            "port": "nombre del puerto",
+            "user": "usuario de la bases de datos",
+            "password": "contraseña a la bases de datos"
         },
     }
 }
