@@ -63,9 +63,16 @@ py manage.py runserver
 
 ![image](https://user-images.githubusercontent.com/47578861/166622810-a6d6521d-8575-4b34-8bc6-4d5679c2ccf2.png)
 
+## Despliegue
+El despliegue se realizo a traves de heroku
 
+<img  src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white"/>
+
+
+Dale click al sigueinte enlace para ver el despliegue [Link del despliegue](https://syspoll.herokuapp.com/)
 
 ## 🤝 Autores
+
 
 
 <table>
