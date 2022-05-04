@@ -1,9 +1,8 @@
 from django.contrib import admin
-from .models import Answers
-from .models import Poll
-from .models import votes
+from .models import Answers, Poll, Votes
+
 
 # Register your models here.
 admin.site.register(Answers)
 admin.site.register(Poll)
-admin.site.register(votes)
+admin.site.register(Votes)
