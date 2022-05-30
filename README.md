@@ -81,9 +81,9 @@ Dale click al sigueinte enlace para ver el despliegue [Link del despliegue](http
   <tr>
     <td align="center">
       <a href="#">
-        <img src="https://avatars.githubusercontent.com/Diegoabt18" width="100px;" alt="Foto do Diego Botello no GitHub"/><br>
+        <img src="https://github.com/sarisp3260/systempolls.git" width="100px;" alt="w"/><br>
         <sub>
-          <b>Diego Botello</b>
+          <b>:)</b>
         </sub>
       </a>
     </td>
